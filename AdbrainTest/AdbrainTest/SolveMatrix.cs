@@ -24,6 +24,28 @@ namespace AdbrainTest
         /// 
         /// assumes dictionary is lowercase
         /// assumes diagonals are not "adjacent" and do not count
+        /// 
+        /// 
+        /// 
+        /// End result: code works fine, but is slow (we are brute forcing it, so runtime becomes quite bad if we allow large words)
+        /// Ideas (not implemented): 
+        ///     reduce the size of the dictionary - kick out any entries that contain letters that do not appear in our input
+        ///     
+        ///     instead of using a hashset for the dictionary, use a tree. Start with a blank node, then for each word, add each letter separately
+        ///         to the tree, and mark whether the current path is a complete word or not. For example,
+        ///         ba, bad, back
+        ///         (with * representing a full word)
+        ///             blank
+        ///             /
+        ///            b
+        ///           /
+        ///          a*
+        ///         /  \
+        ///        d*   c
+        ///            /
+        ///           k*
+        ///     Then, as we are recursing through possible paths through the matrix, if the current path does not exist in the tree-dictionary,
+        ///     we can just skip to the next path. This would greatly reduce the number of recursions.
         /// </summary>
         public static IEnumerable<string> solveMatrix()
         {

@@ -209,7 +209,7 @@ namespace AdbrainTest
 
             var result2 = SolveMatrix.solveMatrix().ToList();
 
-            Assert.True(result1.Count != result2.Count);
+            Assert.True(result1.Count < result2.Count);
         }
     }
 }
