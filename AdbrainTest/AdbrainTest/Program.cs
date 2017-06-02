@@ -10,6 +10,12 @@ namespace AdbrainTest
     {
         static void Main(string[] args)
         {
+            // solve the matrix in input.txt using the dictionary in Dictionary.txt
+            var result = SolveMatrix.solveMatrix();
+            foreach(var solution in result)
+            {
+                Console.WriteLine(solution);
+            }
         }
     }
 }
